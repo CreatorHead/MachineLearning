@@ -8,11 +8,27 @@ be a comma-separated list of values and Python then constructs a tuple and retur
 this to the  caller
 """
 
-
 def create_dataSet():
     group = array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])
     labels = ['A', 'A', 'B', 'B']
     return group, labels
+
+
+def file2matrix(filename):
+    fr = open(filename)
+    numberOfLines = len(fr.readline())
+    returnMat = zeros((numberOfLines, 3))
+    classLabelVector = []
+    fr = open(filename)
+    index = 0
+    for line in fr.radlines():
+        line = line.strip()
+        listFromLine = line.split('\t')
+        returnMat[index, :] = listFromLine[0:3]
+        classLabelVector.append(int(listFromLine[-1]))
+        index += 1
+    return returnMat, classLabelVector
+
 
 group, labels = create_dataSet()
 
