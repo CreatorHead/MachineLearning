@@ -1,18 +1,10 @@
-import pathlib
-import matplotlib.pyplot as plt
-from codes.kNN.kNN import *
+from codes.kNN.create_scatter_plots_with_Matplotlib import *
+
 
 """ First Test Sample """
 # group, labels = create_dataSet()
 # print(classify0([0, 0], group, labels, 3))
 
 """ 2nd Test Sample: Dating ML Model """
-filePath = pathlib.Path(__file__).parent / '../../resources/datingTestSet.txt'
-datingDataMat, datingLabels = file2matrix(filePath)
-# print(datingDataMat)
-# print(datingLabels)
-fig = plt.figure()
-ax = fig.add_subplot(111)
-ax.scatter(datingDataMat[:, 1], datingDataMat[:, 2])
-plt.show()
-
+# draw_time_spent_in_video_game_VS_Ice_cream_consumed()
+draw_Flyier_Mies_VS_time_spent_in_video_game()
