@@ -8,6 +8,7 @@ be a comma-separated list of values and Python then constructs a tuple and retur
 this to the  caller
 """
 
+
 def create_dataSet():
     group = array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])
     labels = ['A', 'A', 'B', 'B']
@@ -16,21 +17,18 @@ def create_dataSet():
 
 def file2matrix(filename):
     fr = open(filename)
-    numberOfLines = len(fr.readline())
+    arrayOLines = fr.readlines()
+    numberOfLines = len(arrayOLines)
     returnMat = zeros((numberOfLines, 3))
     classLabelVector = []
-    fr = open(filename)
     index = 0
-    for line in fr.radlines():
+    for line in arrayOLines:
         line = line.strip()
         listFromLine = line.split('\t')
         returnMat[index, :] = listFromLine[0:3]
-        classLabelVector.append(int(listFromLine[-1]))
+        classLabelVector.append(listFromLine[-1])
         index += 1
     return returnMat, classLabelVector
-
-
-group, labels = create_dataSet()
 
 
 def classify0(inX, dataSet, labels, k):
@@ -46,6 +44,3 @@ def classify0(inX, dataSet, labels, k):
         classCount[votelabel] = classCount.get(votelabel, 0) + 1
     sortedClassCount = sorted(classCount.items(), key=operator.itemgetter(1), reverse=True)
     return sortedClassCount[0][0]
-
-
-print(classify0([0, 0], group, labels, 3))
