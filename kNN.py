@@ -9,17 +9,16 @@ this to the  caller
 """
 
 
-def createDataSet():
+def create_dataSet():
     group = array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])
     labels = ['A', 'A', 'B', 'B']
     return group, labels
 
-
-group, labels = createDataSet()
+group, labels = create_dataSet()
 
 
 def classify0(inX, dataSet, labels, k):
-    dataSetSize = dataSet.shape[0]
+    dataSetSize = dataSet.shape[0]  # number of rows
     diffMat = tile(inX, (dataSetSize, 1)) - dataSet
     sqDiffMat = diffMat ** 2
     sqDistances = sqDiffMat.sum(axis=1)
@@ -33,4 +32,4 @@ def classify0(inX, dataSet, labels, k):
     return sortedClassCount[0][0]
 
 
-print(classify0([1, 1], group, labels, 3))
+print(classify0([0, 0], group, labels, 3))
