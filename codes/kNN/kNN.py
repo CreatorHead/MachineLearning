@@ -16,16 +16,16 @@ def create_dataSet():
 
 
 def file2matrix(filename):
-    fr = open(filename)
-    arrayOLines = fr.readlines()
-    numberOfLines = len(arrayOLines)
-    returnMat = zeros((numberOfLines, 3))
+    fr = open(filename)  # opening a file
+    arrayInLines = fr.readlines()  # reading no. of lines
+    numberOfLines = len(arrayInLines)
+    returnMat = zeros((numberOfLines, 3))  # return a new array of given shape and type, filled with zeros.
     classLabelVector = []
     index = 0
-    for line in arrayOLines:
+    for line in arrayInLines:
         line = line.strip()
         listFromLine = line.split('\t')
-        returnMat[index, :] = listFromLine[0:3]
+        returnMat[index, :] = listFromLine[0:3]  # List slice in Action
         classLabelVector.append(listFromLine[-1])
         index += 1
     return returnMat, classLabelVector
