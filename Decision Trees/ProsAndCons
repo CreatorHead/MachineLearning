@@ -1,0 +1,19 @@
+Decision Trees
+--------------
+
+Pros:
+-----
+*   Computationally cheap to use
+*   Easy for humans to understand learned results
+*   Missing values OK
+*   Can deal with irrelevant features
+
+
+Cons:
+-----
+*   Prone to overfitting
+
+Works With:
+-----------
+*   Numeric values
+*   Nominal values
