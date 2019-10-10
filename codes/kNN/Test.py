@@ -1,5 +1,5 @@
 from codes.kNN.create_scatter_plots_with_Matplotlib import *
-from codes.kNN.kNN import autoNorm
+from codes.kNN.kNN import autoNorm, datingClassTest, classifyPerson
 
 """ First Test Sample """
 # group, labels = create_dataSet()
@@ -10,7 +10,11 @@ from codes.kNN.kNN import autoNorm
 # draw_Flyier_Mies_VS_time_spent_in_video_game()
 
 
-filePath = pathlib.Path(__file__).parent / '../../resources/datingTestSet.txt'
-datingDataMat, datingLabels = file2matrix(filePath)
-normMat, ranges, minVals = autoNorm(datingDataMat)
-print(normMat)
+# filePath = pathlib.Path(__file__).parent / '../../resources/datingTestSet.txt'
+# datingDataMat, datingLabels = file2matrix(filePath)
+# normMat, ranges, minVals = autoNorm(datingDataMat)
+# print(normMat)
+
+#datingClassTest()
+
+classifyPerson()

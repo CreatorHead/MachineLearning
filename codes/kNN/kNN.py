@@ -1,5 +1,9 @@
+import pathlib
+
 from numpy import *
 import operator
+
+from pip._vendor.distlib.compat import raw_input
 
 """
 Python also has the ability to return multiple values from a function call ,
@@ -54,7 +58,36 @@ def autoNorm(dataSet):
     ranges = maxVals - minVals
     normDataSet = zeros(shape(dataSet))
     m = dataSet.shape[0]
-    normDataSet = dataSet - tile(minVals, (m,1))
-    normDataSet = normDataSet/tile(ranges, (m,1))   #element wise divide
+    normDataSet = dataSet - tile(minVals, (m, 1))
+    normDataSet = normDataSet / tile(ranges, (m, 1))  # element wise divide
     return normDataSet, ranges, minVals
+
+
+def datingClassTest():
+    hoRatio = 0.50  # hold out 10%
+    filePath = pathlib.Path(__file__).parent / '../../resources/datingTestSet.txt'
+    datingDataMat, datingLabels = file2matrix(filePath)
+    normMat, ranges, minVals = autoNorm(datingDataMat)
+    m = normMat.shape[0]
+    numTestVecs = int(m * hoRatio)
+    errorCount = 0.0
+    for i in range(numTestVecs):
+        classifierResult = classify0(normMat[i, :], normMat[numTestVecs:m, :], datingLabels[numTestVecs:m], 3)
+        print("the classifier came back with: %d, the real answer is: %d" % (classifierResult, datingLabels[i]))
+        if (classifierResult != datingLabels[i]): errorCount += 1.0
+    print("the total error rate is: %f" % (errorCount / float(numTestVecs)))
+    print(errorCount)
+
+
+def classifyPerson():
+    resultList = ['not at all', 'in small doses', 'in large doses']
+    percentTats = float(raw_input("percentage of time spent playing video gmaes?"))
+    ffMiles = float(raw_input("frequent flier miles earned per year?"))
+    iceCream = float(raw_input("liters of ice cream consume per year?"))
+    filePath = pathlib.Path(__file__).parent / '../../resources/datingTestSet.txt'
+    datingDataMat, datingLabels = file2matrix(filePath)
+    normMat, ranges, minVals = autoNorm(datingDataMat)
+    inArr = array([ffMiles, percentTats, iceCream])
+    classifierResult = classify0((inArr - minVals) / ranges, normMat, datingLabels, 3)
+    print("You will probably like this person: " , resultList[classifierResult - 1])
 
