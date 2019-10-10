@@ -1,0 +1,19 @@
+k-Nearest Neighbors
+-------------------
+Pros:
+-----
+*   High accuracy
+*   Insensitive to outliers
+*   No assumptions about data
+
+
+Cons:
+-----
+*   Computationally expensive
+*   Requires a lot of memory
+
+
+Works with:
+-----------
+*   Numeric values
+*   Nominal values

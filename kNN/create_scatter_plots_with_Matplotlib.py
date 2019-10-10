@@ -1,7 +1,7 @@
 import pathlib
 from numpy import *
 import matplotlib.pyplot as plt
-from codes.kNN.kNN import file2matrix
+from kNN.kNN import file2matrix
 
 
 def draw_time_spent_in_video_game_VS_Ice_cream_consumed():

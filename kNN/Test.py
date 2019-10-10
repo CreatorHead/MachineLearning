@@ -1,4 +1,4 @@
-from codes.kNN.kNN import *
+from kNN.kNN import *
 
 """ First Test Sample """
 # group, labels = create_dataSet()
