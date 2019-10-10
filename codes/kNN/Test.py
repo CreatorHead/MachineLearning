@@ -1,5 +1,4 @@
-from codes.kNN.create_scatter_plots_with_Matplotlib import *
-from codes.kNN.kNN import autoNorm, datingClassTest, classifyPerson, img2Vector, handwritingClassTest
+from codes.kNN.kNN import *
 
 """ First Test Sample """
 # group, labels = create_dataSet()
