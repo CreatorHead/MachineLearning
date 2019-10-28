@@ -1,6 +1,5 @@
 from math import log
 
-
 '''
 The code is straightforward, first you calculate a count of the number of instances in the dataset.
 This could have been calculated inline, but it's used multiple times in the code, so an explicit 
@@ -11,6 +10,8 @@ column.
     the probability of that label. This probability is used to calculate the Shanon entropy.
 2.  And, you sum this up for all the labels.
 '''
+
+
 def calcShannonEnt(dataSet):
     numEntries = len(dataSet)
     labelCounts = {}
