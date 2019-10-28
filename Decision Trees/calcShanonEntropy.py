@@ -5,7 +5,7 @@ from math import log
 The code is straightforward, first you calculate a count of the number of instances in the dataset.
 This could have been calculated inline, but it's used multiple times in the code, so an explicit 
 variable is created for it. Next, you create a dictionary whose keys are the values in the final 
-column. 
+column.
 
 '''
 def calcShannonEnt(dataSet):
