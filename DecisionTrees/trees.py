@@ -120,6 +120,14 @@ leaf node. In this situation, you'll take a majority vote.
 
 
 def majorityCnt(classList):
+    """
+    This function takes a list of class names and then creates a dictionary whose keys are the unique values in
+    classList, and the object of the dictionary is thr frequency of occurrence of each class label from classList.
+    Finally, you use the operator to sort the dictionary by the keys and return the class that occurs with the
+    greatest frequency.
+    :param classList:
+    :return: number
+    """
     classCount = {}
     for vote in classList:
         if vote not in classCount.keys(): classCount[vote] = 0
@@ -129,6 +137,24 @@ def majorityCnt(classList):
 
 
 def createTree(dataSet, labels):
+    """
+    The list of lables contains a label for each of the features in the dataset. The algorithm could function without
+    this, but it would be difficult to make any sense of the data. You first create a list of all the class labels in
+    our dataset and call this classList. The first stopping condition is that if all the class labels are the same,
+    then you return this label. The second stopping condition is the case when there are no more features to split.
+    If you don't meet the stopping conditions, then you use the function "chooseBestFeatureToSplit" to choose the best
+    feature. We'll use the python dictionary to store the tree. You could have created a special data type, but it's
+    not necessary. The myTree dictionary will be used to store the tree. We'll get all the unique values from the
+    dataset for our chosen feature: bestFeat. The unique value code uses sets. Finally, we iterate over all the unique
+    values from our chosen feature and recursively call createTree() for each split of the dataset. This value is
+    inserted into our myTree dictionary, so you end up with a lot of nested dictionaries representing our tree. Note
+    that subLabels = labels[:] line make a copy of labels and places it in a new list called subLabels. We do this
+    because Python passes list by reference and you'd like the original list to be the same every time you call
+    createTree().
+    :param dataSet:
+    :param labels:
+    :return: dictionary
+    """
     classList = [example[-1] for example in dataSet]
     if classList.count(classList[0]) == len(classList):
         return classList[0]  # stop splitting when all of the classes are equal
