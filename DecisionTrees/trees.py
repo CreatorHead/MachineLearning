@@ -173,5 +173,5 @@ def createTree(dataSet, labels):
 
 
 myDataSet, labels = createDataSet()
-featureIndex = chooseBestFeatureToSplit(myDataSet)
-print(featureIndex)
+myTree = createTree(myDataSet, labels)
+print(myTree)
