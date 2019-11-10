@@ -172,7 +172,7 @@ def createTree(dataSet, labels):
     return myTree
 
 
-def classify(inputTree,featLabels,testVec):
+def classify(inputTree, featLabels, testVec):
     firstStr = list(inputTree.keys())[0]
     secondDict = inputTree[firstStr]
     featIndex = featLabels.index(firstStr)

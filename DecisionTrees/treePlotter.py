@@ -94,7 +94,3 @@ def retrieveTree(i):
                    ]
     return listOfTrees[i]
 
-
-myTree = retrieveTree(1)
-print(myTree)
-createPlot(myTree)
